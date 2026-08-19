@@ -19,8 +19,8 @@ mongoose
   .connect(
     process.env.MONGODB_URI || "mongodb://localhost:27017/attendance_system",
   )
-  .then(() => console.log("✅ MongoDB Connected"))
-  .catch((err) => console.error("❌ MongoDB error:", err.message));
+  .then(() => console.log("MongoDB Connected"))
+  .catch((err) => console.error("MongoDB error:", err.message));
 
 // Simple User Schema with NO pre-save middleware issues
 const userSchema = new mongoose.Schema(
@@ -87,7 +87,7 @@ const createAdmin = async () => {
       role: "admin",
       isActive: true,
     });
-    console.log(`✅ Admin created: ${adminEmail}`);
+    console.log(`Admin created: ${adminEmail}`);
   }
 };
 await createAdmin();
@@ -545,11 +545,11 @@ app.get("/api/health", (req, res) => {
 // ============ START ============
 app.listen(PORT, () => {
   console.log(`\n========================================`);
-  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
   console.log(`========================================`);
-  console.log(`🔗 Health: http://localhost:${PORT}/api/health`);
+  console.log(`Health: http://localhost:${PORT}/api/health`);
   console.log(
-    `\n✅ ADMIN: ${process.env.ADMIN_EMAIL || "admin@attendance.com"} / ${process.env.ADMIN_PASSWORD || "admin123"}`,
+    `\nADMIN: ${process.env.ADMIN_EMAIL || "admin@attendance.com"} / ${process.env.ADMIN_PASSWORD || "admin123"}`,
   );
   console.log(`========================================\n`);
 });
